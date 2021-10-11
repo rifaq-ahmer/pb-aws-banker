@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "bankerb4f6d1ea_identitypool_b4f6d1ea",
+    "identityPoolName": "banker3edaad4f_identitypool_3edaad4f",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "bankerb4f6d1ea",
-    "userPoolName": "bankerb4f6d1ea_userpool_b4f6d1ea",
+    "resourceNameTruncated": "banker3edaad4f",
+    "userPoolName": "banker3edaad4f_userpool_3edaad4f",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -31,10 +31,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "bankerb4f6d1ea_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "banker3edaad4f_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "b4f6d1ea",
-    "resourceName": "bankerb4f6d1ea",
+    "sharedId": "3edaad4f",
+    "resourceName": "banker3edaad4f",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

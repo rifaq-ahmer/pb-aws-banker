@@ -1,6 +1,6 @@
 {
   "auth": {
-    "bankerb4f6d1ea": {
+    "banker3edaad4f": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
