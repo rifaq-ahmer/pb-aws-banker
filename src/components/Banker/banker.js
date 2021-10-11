@@ -20,7 +20,11 @@ function Banker() {
 		axios
 			.get(`${API_ENDPOINT}/loanapproval/banker`)
 
-			.then((res) => setLoanData(res.data))
+			.then((res) => {
+				if (typeof res.data !== "string") {
+					setLoanData(res.data);
+				}
+			})
 			.catch((error) => console.log(error));
 	}, []);
 	const handleChange = (event) => {
@@ -61,27 +65,31 @@ function Banker() {
 					<div>Loan Amount</div>
 					<div>Status</div>
 				</div>
-				{loanData.map((loan) => (
-					<>
-						<div key={loan.Applicant_ID} className="data-grid">
-							<div>
-								{loan.Applicant_fname} {loan.Applicant_mname}{" "}
-								{loan.Applicant_lname}
+				{loanData.length > 0 ? (
+					loanData.map((loan) => (
+						<>
+							<div key={loan.Applicant_ID} className="data-grid">
+								<div>
+									{loan.Applicant_fname} {loan.Applicant_mname}{" "}
+									{loan.Applicant_lname}
+								</div>
+								<div>{loan.Business_Name}</div>
+								<div>{loan.LoanApplication_Amount}</div>
+								<div>
+									<DropdownComponent
+										options={status}
+										onSubmit={(event) =>
+											handleSubmit(event, loan.LoanApplication_ID)
+										}
+										onChange={handleChange}
+									/>
+								</div>
 							</div>
-							<div>{loan.Business_Name}</div>
-							<div>{loan.LoanApplication_Amount}</div>
-							<div>
-								<DropdownComponent
-									options={status}
-									onSubmit={(event) =>
-										handleSubmit(event, loan.LoanApplication_ID)
-									}
-									onChange={handleChange}
-								/>
-							</div>
-						</div>
-					</>
-				))}
+						</>
+					))
+				) : (
+					<h1>No Load Data Found </h1>
+				)}
 			</div>
 		</>
 	);
