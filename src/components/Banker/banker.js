@@ -10,8 +10,7 @@ function Banker() {
 	let currentStatus = "";
 
 	axios.defaults.headers.common["Authorization"] =
-		"eyJraWQiOiJrSURWK2lTS0RvMU5mMGJHbjhSUlpiMnNIdE1jYVJmS2JZMDB6eWVXM29rPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI5ZWIzYzZlNy1lMjM5LTRlZTQtYWUxOC1mMjNiNmU0NzhkN2UiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIHBob25lIG9wZW5pZCBwcm9maWxlIGVtYWlsIiwiYXV0aF90aW1lIjoxNjMzOTI2NTYzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX2hFamF6OGdxcyIsImV4cCI6MTYzNDAxMjk2MywiaWF0IjoxNjMzOTI2NTYzLCJ2ZXJzaW9uIjoyLCJqdGkiOiJlOWFjNTkwNC04ZTJiLTQ0NjktYWNmZC1kOTI2N2ZiMDdlYWIiLCJjbGllbnRfaWQiOiIzNHNvNGplcjQ0dTJwMzlmZmpxYmxuN2N2dCIsInVzZXJuYW1lIjoicHJhdmluIn0.tPTTc5uMkc2NEPo8mH6Zc5n2f_Qof9q0iUuhzI8ZW_Cucm-Ise7BpOQhrkCI1M_E71KOOqTyYk4r5NmVdq7HvRl9ZvWwfeioyqur5AjDhQ38x3is8dNkOpkbwrtg8MEdPnVKLYbRKfsiPWaiTw6YueBNkUZq8GX3yhpx-nMUSsM9p5fVRspahXB9BjZQx1IZcmYjxEY8VWoyWYB7c4W3QCMNK9uF0qUBKae93NWGzOle4YUqHSnW8skHy5CUkpuYwZINYBl42AKhkh3D_Q9qVNf3ANJQN0yMpEnp3Ri79R0g0vR9YWs8Jp3fxeHDeuL_EKZSnNl7HdL3a94ybBUS0g";
-
+		"eyJraWQiOiJrSURWK2lTS0RvMU5mMGJHbjhSUlpiMnNIdE1jYVJmS2JZMDB6eWVXM29rPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI5ZWIzYzZlNy1lMjM5LTRlZTQtYWUxOC1mMjNiNmU0NzhkN2UiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIHBob25lIG9wZW5pZCBwcm9maWxlIGVtYWlsIiwiYXV0aF90aW1lIjoxNjMzOTUxMjgxLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX2hFamF6OGdxcyIsImV4cCI6MTYzNDAzNzY4MSwiaWF0IjoxNjMzOTUxMjgxLCJ2ZXJzaW9uIjoyLCJqdGkiOiI5YzUzMjVmNi1jODZjLTRmZGItODc5My01OGJjZjkzZTQ5MDEiLCJjbGllbnRfaWQiOiIzNHNvNGplcjQ0dTJwMzlmZmpxYmxuN2N2dCIsInVzZXJuYW1lIjoicHJhdmluIn0.p2ZcFiSffczFijC0prB79KC_H_MoJnI67Vsb8WIRQk2okzLLHjBFkmNdY6ssd6OJ5NIN2nvXf90COQuillmnYvGj-z7qdp-ZvQOSNBrkS_kXUQnN-lDqTToF00ZgzjxVWOoMFqD93uVufpwNLDp_taMeAnyd4ZkvxSdBjV6D3Twi-yiCqs4IJsfjXVYJozt32ONBi0k4Ghc2F66DWtlQRSLe6g7W7xHJ7Lnd9jAWfg4kBn33t4QCLDmrbzWTjPIaIEXJlDdjkohe2aDGt0G7DilwP7508Sk19CNCSxPs75sOtWvH7mVjKz9cXApjyf-d4vFtSLIRrtsuiRlnGKpXLg";
 	useEffect(() => {
 		axios
 			.get(`${API_ENDPOINT}/getloanstatustypebanker/loanstatus`)
@@ -19,7 +18,7 @@ function Banker() {
 			.catch((error) => console.log(error));
 
 		axios
-			.get(`${API_ENDPOINT}/creditapproval/creditor`)
+			.get(`${API_ENDPOINT}/loanapproval/banker`)
 
 			.then((res) => setLoanData(res.data))
 			.catch((error) => console.log(error));
@@ -34,7 +33,7 @@ function Banker() {
 		await axios
 
 			.put(
-				`${API_ENDPOINT}/creditapproval/creditor/${id}`,
+				`${API_ENDPOINT}/loanapproval/banker/${id}`,
 
 				{
 					LoanApplication_Status: currentStatus,
