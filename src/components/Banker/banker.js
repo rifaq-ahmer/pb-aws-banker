@@ -17,7 +17,7 @@ function Banker() {
 					Authorization: token,
 				},
 			};
-			Amplify.API.get("LoanApprovalApi", "/loanapproval/banker", request)
+			Amplify.API?.get("LoanApprovalApi", "/loanapproval/banker", request)
 				.then((json) => {
 					if (typeof json !== "string") {
 						setLoanData(json.data);
@@ -35,7 +35,7 @@ function Banker() {
 					Authorization: token,
 				},
 			};
-			Amplify.API.get(
+			Amplify.API?.get(
 				"LoanApprovalApi",
 				"/getloanstatustypebanker/loanstatus",
 				request
