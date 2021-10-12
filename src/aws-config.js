@@ -1,15 +1,11 @@
-export const API_ENDPOINT =
-	"https://g9yh14f7ve.execute-api.ap-south-1.amazonaws.com/Authorizeddev";
-
-export const APP_CLIENT_ID = "42kuh6q6musktac4venofg0tjk";
-
 export const config = {
 	API: {
 		endpoints: [
 			{
-				name: "BankApprovalApi",
+				name: "LoanApprovalApi",
 
-				endpoint: API_ENDPOINT,
+				endpoint:
+					"https://g9yh14f7ve.execute-api.ap-south-1.amazonaws.com/Authorizeddev",
 			},
 		],
 	},
@@ -21,7 +17,7 @@ export const config = {
 
 		userPoolId: "ap-south-1_hEjaz8gqs",
 
-		userPoolWebClientId: APP_CLIENT_ID,
+		userPoolWebClientId: "42kuh6q6musktac4venofg0tjk",
 
 		mandatorySignIn: true,
 
