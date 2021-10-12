@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DropdownComponent from "../Dropdown/dropdown";
-import Amplify, { Auth } from "aws-amplify";
+import Amplify, { Auth, API } from "aws-amplify";
 import "./banker.css";
 
 function Banker() {
@@ -17,7 +17,8 @@ function Banker() {
 					Authorization: token,
 				},
 			};
-			Amplify.API.get("LoanApprovalApi", "/loanapproval/banker", request)
+
+			API.get("LoanApprovalApi", "/loanapproval/banker", request)
 				.then((json) => {
 					if (typeof json !== "string") {
 						setLoanData(json.data);
@@ -35,11 +36,8 @@ function Banker() {
 					Authorization: token,
 				},
 			};
-			Amplify.API.get(
-				"LoanApprovalApi",
-				"/getloanstatustypebanker/loanstatus",
-				request
-			)
+
+			API.get("LoanApprovalApi", "/getloanstatustypebanker/loanstatus", request)
 				.then((json) => {
 					setStatus(json.data);
 				})
