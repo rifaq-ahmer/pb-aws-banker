@@ -1,6 +1,6 @@
 import Banker from "./components/Banker/banker";
 import Amplify from "aws-amplify";
-import { config } from "./aws-exports";
+import { config } from "./aws-config";
 import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
 
 Amplify.configure(config);
