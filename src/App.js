@@ -5,12 +5,17 @@ import { AmplifySignOut, withAuthenticator } from "@aws-amplify/ui-react";
 
 Amplify.configure(config);
 
+const onSignOut = () => {
+	localStorage.clear();
+	console.log("Local Storage Clear");
+};
+
 function App() {
 	return (
 		<>
 			<div className="container">
 				<div className="page-heading">
-					<AmplifySignOut />
+					<AmplifySignOut onClick={onSignOut} />
 					<h1>Banker Application</h1>
 				</div>
 			</div>
