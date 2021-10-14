@@ -21,7 +21,7 @@ function Banker() {
 			API.get("LoanApprovalApi", "/loanapproval/banker", request)
 				.then((json) => {
 					if (typeof json !== "string") {
-						setLoanData(json.data);
+						setLoanData(json);
 					}
 				})
 				.catch((error) => {
@@ -39,7 +39,7 @@ function Banker() {
 
 			API.get("LoanApprovalApi", "/getloanstatustypebanker/loanstatus", request)
 				.then((json) => {
-					setStatus(json.data);
+					setStatus(json);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -70,7 +70,7 @@ function Banker() {
 				}
 			)
 				.then((json) => {
-					alert(`${json.data} of Loan Application id: ${id}`);
+					alert(`${json} of Loan Application id: ${id}`);
 				})
 				.catch((error) => {
 					console.log(error);
