@@ -95,23 +95,21 @@ function Banker() {
 								</div>
 								<div>{loan.Business_Name}</div>
 								<div>{loan.LoanApplication_Amount}</div>
-								<div>
-									{loan.LoanApplication_Status !== 8 ? (
-										<div>
-											<DropdownComponent
-												setStatusOption={status}
-												onSubmit={(event) =>
-													handleSubmit(event, loan.CreditorAssigned_ID)
-												}
-												onChange={handleChange}
-											/>
-										</div>
-									) : (
-										<div>
-											<h4>Loan Request Closed by External Service </h4>
-										</div>
-									)}
-								</div>
+								{loan.LoanApplication_Status !== 8 ? (
+									<div>
+										<DropdownComponent
+											options={status}
+											onSubmit={(event) =>
+												handleSubmit(event, loan.CreditorAssigned_ID)
+											}
+											onChange={handleChange}
+										/>
+									</div>
+								) : (
+									<div>
+										<p>Loan Request Closed by External Service </p>
+									</div>
+								)}
 							</div>
 						</>
 					))

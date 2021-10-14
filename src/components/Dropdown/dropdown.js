@@ -19,17 +19,3 @@ function DropdownComponent({ options, onSubmit, onChange }) {
 }
 
 export default DropdownComponent;
-
-// {
-// 	/* <select values={""} onChange={onChange}>
-// 				<option value="Submitted">Submitted</option>
-
-// 				<option value="In Review">In Review</option>
-
-// 				<option value="Rejected">Rejected</option>
-
-// 				<option value="More Info Requested">More Info Requested</option>
-
-// 				<option value="Approved For Credit">Approved For Credit</option>
-// 			 */
-// }
