@@ -58,17 +58,13 @@ function Banker() {
 				headers: {
 					Authorization: token,
 				},
-			};
-			Amplify.API.put(
-				"LoanApprovalApi",
-				`/loanapproval/banker/${id}`,
-				request,
-				{
+				body: {
 					LoanApplication_Status: currentStatus,
 
 					LoanApplication_BankerComment: " Approved For Credit",
-				}
-			)
+				},
+			};
+			Amplify.API.put("LoanApprovalApi", `/loanapproval/banker/${id}`, request)
 				.then((json) => {
 					alert(`${json} of Loan Application id: ${id}`);
 				})
