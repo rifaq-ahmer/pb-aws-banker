@@ -106,8 +106,14 @@ function Banker() {
 										/>
 									</div>
 								) : (
-									<div>
-										<p>Loan Request Closed by External Service </p>
+									<div className="disabled">
+										<DropdownComponent
+											options={status}
+											onSubmit={(event) =>
+												handleSubmit(event, loan.CreditorAssigned_ID)
+											}
+											onChange={handleChange}
+										/>
 									</div>
 								)}
 							</div>
