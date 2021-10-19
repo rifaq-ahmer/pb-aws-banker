@@ -74,6 +74,7 @@ function Banker() {
 				});
 		});
 	};
+	const closedStatus = [{ status_ID: "ClosedbyExternalService", status: 8 }];
 
 	return (
 		<>
@@ -108,7 +109,7 @@ function Banker() {
 								) : (
 									<div className="disabled">
 										<DropdownComponent
-											options={status}
+											options={closedStatus}
 											onSubmit={(event) =>
 												handleSubmit(event, loan.CreditorAssigned_ID)
 											}
