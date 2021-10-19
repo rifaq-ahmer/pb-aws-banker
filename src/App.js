@@ -16,7 +16,7 @@ function App() {
 			<div className="container">
 				<div className="page-heading">
 					<AmplifySignOut onClick={onSignOut} />
-					<h1>Banker Application</h1>
+					<h1>Loan Approval</h1>
 				</div>
 			</div>
 			<Banker />
