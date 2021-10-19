@@ -101,7 +101,7 @@ function Banker() {
 										<DropdownComponent
 											options={status}
 											onSubmit={(event) =>
-												handleSubmit(event, loan.CreditorAssigned_ID)
+												handleSubmit(event, loan.LoanApplication_ID)
 											}
 											onChange={handleChange}
 										/>
@@ -110,10 +110,10 @@ function Banker() {
 									<div className="disabled">
 										<DropdownComponent
 											options={closedStatus}
-											onSubmit={(event) =>
-												handleSubmit(event, loan.CreditorAssigned_ID)
-											}
-											onChange={handleChange}
+											// onSubmit={(event) =>
+											// 	handleSubmit(event, loan.CreditorAssigned_ID)
+											// }
+											// onChange={handleChange}
 										/>
 									</div>
 								)}
