@@ -74,7 +74,6 @@ function Banker() {
 				});
 		});
 	};
-	const closedStatus = [{ status_ID: "ClosedbyExternalService", status: 8 }];
 
 	return (
 		<>
@@ -96,7 +95,29 @@ function Banker() {
 								</div>
 								<div>{loan.Business_Name}</div>
 								<div>{loan.LoanApplication_Amount}</div>
-								{loan.LoanApplication_Status !== 8 ? (
+								<DropdownComponent
+									options={status}
+									loanStatus={loan.LoanApplication_Status}
+									onSubmit={(event) =>
+										handleSubmit(event, loan.LoanApplication_ID)
+									}
+									onChange={handleChange}
+								/>
+							</div>
+						</>
+					))
+				) : (
+					<h1>No Load Data Found </h1>
+				)}
+			</div>
+		</>
+	);
+}
+
+export default Banker;
+
+// {
+/* {loan.LoanApplication_Status !== 8 ? (
 									<div>
 										<DropdownComponent
 											options={status}
@@ -110,22 +131,11 @@ function Banker() {
 									<div className="disabled">
 										<DropdownComponent
 											options={closedStatus}
-											// onSubmit={(event) =>
-											// 	handleSubmit(event, loan.CreditorAssigned_ID)
-											// }
-											// onChange={handleChange}
+											onSubmit={(event) =>
+												handleSubmit(event, loan.CreditorAssigned_ID)
+											}
+											onChange={handleChange}
 										/>
 									</div>
-								)}
-							</div>
-						</>
-					))
-				) : (
-					<h1>No Load Data Found </h1>
-				)}
-			</div>
-		</>
-	);
-}
-
-export default Banker;
+								)} */
+// }
