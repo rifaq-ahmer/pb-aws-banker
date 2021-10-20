@@ -1,13 +1,23 @@
-import React from "react";
-
 import "./dropdown.css";
 
-function DropdownComponent({ options, onSubmit, onChange, loanStatus }) {
+function DropdownComponent({
+	name,
+	options,
+	onSubmit,
+	onChange,
+	loanStatus,
+	value,
+}) {
 	return (
 		<form onSubmit={onSubmit} onChange={onChange} className="custom-dropdown">
-			<select value={loanStatus || options.status} disabled={loanStatus === 8}>
+			<select
+				id={name}
+				name={name}
+				value={value || loanStatus}
+				disabled={loanStatus === 8}
+			>
 				{options.map((option) => (
-					<option key={options.status} value={option.status}>
+					<option key={option.status} value={option.status}>
 						{option.status_ID}
 					</option>
 				))}

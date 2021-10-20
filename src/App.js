@@ -7,7 +7,6 @@ Amplify.configure(config);
 
 const onSignOut = () => {
 	localStorage.clear();
-	console.log("Local Storage Clear");
 };
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
 			<div className="container">
 				<div className="page-heading">
 					<AmplifySignOut onClick={onSignOut} />
-					<h1>Banker Approval</h1>
+					<h1>Loan Approval</h1>
 				</div>
 			</div>
 			<Banker />

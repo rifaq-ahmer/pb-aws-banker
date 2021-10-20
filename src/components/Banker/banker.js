@@ -6,7 +6,7 @@ import "./banker.css";
 function Banker() {
 	const [status, setStatus] = useState([]);
 	const [loanData, setLoanData] = useState([]);
-	let currentStatus = "";
+	const [dropDownValue, setDropDownValue] = useState({});
 
 	useEffect(() => {
 		Auth.currentAuthenticatedUser().then((response) => {
@@ -47,11 +47,13 @@ function Banker() {
 				});
 		});
 	}, []);
-	const handleChange = (event) => {
-		currentStatus = event.target.value;
+	const handleChange = (event, name) => {
+		const data = { ...dropDownValue };
+		data[name] = event.target.value;
+		setDropDownValue(data);
 	};
 
-	const handleSubmit = async (event, id) => {
+	const handleSubmit = async (event, id, name) => {
 		event.preventDefault();
 		Auth.currentAuthenticatedUser().then((response) => {
 			const token = localStorage.getItem("accessToken");
@@ -60,7 +62,7 @@ function Banker() {
 					Authorization: token,
 				},
 				body: {
-					LoanApplication_Status: currentStatus,
+					LoanApplication_Status: dropDownValue[name],
 
 					LoanApplication_BankerComment: " Approved For Credit",
 				},
@@ -86,7 +88,7 @@ function Banker() {
 					<div>Status</div>
 				</div>
 				{loanData.length > 0 ? (
-					loanData.map((loan) => (
+					loanData.map((loan, index) => (
 						<>
 							<div key={loan.Applicant_ID} className="data-grid">
 								<div>
@@ -96,12 +98,18 @@ function Banker() {
 								<div>{loan.Business_Name}</div>
 								<div>{loan.LoanApplication_Amount}</div>
 								<DropdownComponent
+									name={`status.${index}`}
+									value={dropDownValue[`status.${index}`]}
 									options={status}
 									loanStatus={loan.LoanApplication_Status}
 									onSubmit={(event) =>
-										handleSubmit(event, loan.LoanApplication_ID)
+										handleSubmit(
+											event,
+											loan.LoanApplication_ID,
+											`status.${index}`
+										)
 									}
-									onChange={handleChange}
+									onChange={(e) => handleChange(e, `status.${index}`)}
 								/>
 							</div>
 						</>
@@ -115,27 +123,3 @@ function Banker() {
 }
 
 export default Banker;
-
-// {
-/* {loan.LoanApplication_Status !== 8 ? (
-									<div>
-										<DropdownComponent
-											options={status}
-											onSubmit={(event) =>
-												handleSubmit(event, loan.LoanApplication_ID)
-											}
-											onChange={handleChange}
-										/>
-									</div>
-								) : (
-									<div className="disabled">
-										<DropdownComponent
-											options={closedStatus}
-											onSubmit={(event) =>
-												handleSubmit(event, loan.CreditorAssigned_ID)
-											}
-											onChange={handleChange}
-										/>
-									</div>
-								)} */
-// }
