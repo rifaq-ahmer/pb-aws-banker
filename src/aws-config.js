@@ -5,19 +5,19 @@ export const config = {
 				name: "LoanApprovalApi",
 
 				endpoint:
-					"https://g9yh14f7ve.execute-api.ap-south-1.amazonaws.com/Authorizeddev",
+					"https://xot7r87w4b.execute-api.us-east-2.amazonaws.com/ExternalAPI",
 			},
 		],
 	},
 
 	Auth: {
-		region: "ap-south-1",
+		region: "us-east-2",
 
-		identityPoolRegion: "ap-south-1",
+		identityPoolRegion: "us-east-2",
 
-		userPoolId: "ap-south-1_hEjaz8gqs",
+		userPoolId: "us-east-2_azGlGHOz4",
 
-		userPoolWebClientId: "42kuh6q6musktac4venofg0tjk",
+		userPoolWebClientId: "61rgj9l5hkldp4350t8hmbf2l3",
 
 		mandatorySignIn: true,
 
@@ -26,7 +26,7 @@ export const config = {
 		clientMetadata: { myCustomKey: "myCustomValue" },
 
 		oauth: {
-			domain: "banker.auth.ap-south-1.amazoncognito.com",
+			domain: "banker.auth.us-east-2.amazoncognito.com",
 
 			scope: ["email", "openid"],
 
@@ -44,10 +44,10 @@ export const config = {
 };
 
 const awsmobile = {
-	aws_project_region: "ap-south-1",
+	aws_project_region: "us-east-2",
 	aws_cognito_identity_pool_id:
-		"ap-south-1:f06d6b8d-8490-40d9-922d-0417a9f3eb7c",
-	aws_cognito_region: "ap-south-1",
+		"us-east-2:f06d6b8d-8490-40d9-922d-0417a9f3eb7c",
+	aws_cognito_region: "us-east-2",
 	aws_user_pools_id: "ap-south-1_hEjaz8gqs",
 	aws_user_pools_web_client_id: "5e1rauvsded6cepsrl3f56tmfr",
 	oauth: {},
