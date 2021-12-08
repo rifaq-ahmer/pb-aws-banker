@@ -115,7 +115,7 @@ function Banker() {
 						</>
 					))
 				) : (
-					<h1>No Load Data Found </h1>
+					<h1>No Loan Data Found </h1>
 				)}
 			</div>
 		</>
